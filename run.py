@@ -48,7 +48,17 @@ config.overwrite_from_args(args)
 if args.feature == 0:
     ExampleAnalysis().run()
 elif args.feature == 1:
-    pass # TODO call first analysis
+    from analysis.trend_analyzer import TrendAnalyzer
+    from data_loader import DataLoader
+    import config
+
+    config.set_parameter('ENPM611_PROJECT_DATA_PATH', 'data/poetry_issues.json')
+
+    loader = DataLoader()
+    issues = loader.get_issues()
+    TrendAnalyzer().run(issues, [])
+
+    #pass # TODO call first analysis
 elif args.feature == 2:
     pass # TODO call second analysis
 elif args.feature == 3:
