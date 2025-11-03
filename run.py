@@ -9,6 +9,7 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
+from userAnalysis_Feature import CommentAnalysis
 
 
 def parse_args():
@@ -60,7 +61,7 @@ elif args.feature == 1:
 
     #pass # TODO call first analysis
 elif args.feature == 2:
-    pass # TODO call second analysis
+    CommentAnalysis().run()
 elif args.feature == 3:
     pass # TODO call third analysis
 else:
