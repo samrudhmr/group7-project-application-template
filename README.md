@@ -1,3 +1,23 @@
+The repository has 4 features for analysis:
+Issue_Resolution_Time_Analyzer:
+    Plots the trend for 6 most common issue labels over time
+    To run: python run.py --feature 4
+Issues_Category_Trend_Analyzer:
+    it has three separaete plots for analysis:
+        plots most common issue labels
+        plots average resolution time for issue labels
+        plots label frequency vs average resolution time for labels
+    To run: python run.py --feature 3
+    simply closing one plot will bring up the next plot
+Trend_analyzer for frequency of issues:
+    Plots number of issues created over time,
+    To run: python run.py --feature 1    
+UserAnalysis for commenters:
+    Plots users' frequency of comments 
+    To run: python run.py --feature 2
+
+
+
 # ENPM611 Project Application Template
 
 This is the template for the ENPM611 class project. Use this template in conjunction with the provided data to implement an application that analyzes GitHub issues for the [poetry](https://github.com/python-poetry/poetry/issues) Open Source project and generates interesting insights.
