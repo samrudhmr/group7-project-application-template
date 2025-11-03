@@ -1,8 +1,11 @@
 The repository has 4 features for analysis:
+
 -Issue_Resolution_Time_Analyzer:
+
     -Plots the trend for 6 most common issue labels over time
     -To run: python run.py --feature 4
 -Issues_Category_Trend_Analyzer:
+
     -it has three separaete plots for analysis:
         -plots most common issue labels
         -plots average resolution time for issue labels
@@ -10,9 +13,12 @@ The repository has 4 features for analysis:
     -To run: python run.py --feature 3
     -simply closing one plot will bring up the next plot
 -Trend_analyzer for frequency of issues:
+
     -Plots number of issues created over time,
-    -To run: python run.py --feature 1    
+    -To run: python run.py --feature 1   
+    
 -UserAnalysis for commenters:
+
     -Plots users' frequency of comments 
     -To run: python run.py --feature 2
 
