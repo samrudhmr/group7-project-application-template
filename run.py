@@ -9,8 +9,9 @@ import argparse
 
 import config
 from example_analysis import ExampleAnalysis
-from userAnalysis_Feature import CommentAnalysis
-
+from analysis.userAnalysis_Feature import CommentAnalysis
+from analysis.issue_resolution_time_analyzer import IssueResolutionTimeAnalyzer
+from analysis.issues_category_trend_analyzer import IssuesCategoryTrendAnalyzer
 
 def parse_args():
     """
@@ -39,16 +40,13 @@ def parse_args():
     return ap.parse_args()
 
 
-
 # Parse feature to call from command line arguments
 args = parse_args()
 # Add arguments to config so that they can be accessed in other parts of the application
 config.overwrite_from_args(args)
-    
+
+def runFeatures():    
 # Run the feature specified in the --feature flag
-if args.feature == 0:
-    ExampleAnalysis().run()
-elif args.feature == 1:
     from analysis.trend_analyzer import TrendAnalyzer
     from data_loader import DataLoader
     import config
@@ -57,12 +55,20 @@ elif args.feature == 1:
 
     loader = DataLoader()
     issues = loader.get_issues()
-    TrendAnalyzer().run(issues, [])
+    if args.feature == 0:
+        ExampleAnalysis().run()
+    elif args.feature == 1:
+        TrendAnalyzer().run(issues, [])
+        #pass # TODO call first analysis
+    elif args.feature == 2:
+        CommentAnalysis().run()
+    elif args.feature == 3:
+        IssueResolutionTimeAnalyzer().run(issues)
+    elif args.feature == 4:
+        IssuesCategoryTrendAnalyzer().run(issues)    
+        
+    else:
+        print('Need to specify which feature to run with --feature flag.')
 
-    #pass # TODO call first analysis
-elif args.feature == 2:
-    CommentAnalysis().run()
-elif args.feature == 3:
-    pass # TODO call third analysis
-else:
-    print('Need to specify which feature to run with --feature flag.')
+
+runFeatures()
